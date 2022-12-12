@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Router from './router/Router'
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.css'; 
+import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+ 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <>
-  <Router />
-</>
+    <div className="background-wrap">
+      <div className="background-content">
+        <Router />
+      </div>
+    </div>
+
+  </>
 );
 

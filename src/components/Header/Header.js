@@ -43,8 +43,8 @@ const Header = () => {
                                 <li>
                                     <Link className='text-white h4' to="/admin/applications">Admin</Link>
                                     <ul class="dropdown-menu">
-                                        <li><Link className='h5 text-white' to="/admin/applications">Applications</Link></li>
-                                        <li><Link className='h5  text-white' to="/admin/schools">Schools</Link></li>
+                                        <li><Link className='' to="/admin/applications">Applications</Link></li>
+                                        <li><Link className='' to="/admin/schools">Schools</Link></li>
                                     </ul>
                                 </li>
                             </>
