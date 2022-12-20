@@ -16,8 +16,7 @@ const Logout = (props) => {
                 localStorage.removeItem('token')
                 localStorage.removeItem('user_role')
                 logoutUser()
-                window.location.href = '/'
-                navigate('/')
+                 navigate('/')
             })
             .catch(err => {
                 console.log(err)
