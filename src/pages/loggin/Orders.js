@@ -66,7 +66,7 @@ const Register = () => {
         <>
              <Header />
             <main className="text-center registerForm">
-                <div className="form-signin w-100 m-auto">
+                <div className="form-signin w-25 m-auto">
                     <h1 className="h2 mb-3 fw-normal text-light">Student registration</h1>
                     <Message value={message} />
                     <form onSubmit={handleFormSubmit}>

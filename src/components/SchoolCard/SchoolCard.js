@@ -18,7 +18,7 @@ const SchoolCard = (props) => {
             <div className="address">Address: {data.address}</div>
             <div className="address">Address: {data.id}</div>
             <div className="mt-2">
-                <button className="btn btn-success" onClick={() => handleOrder(data.id)}><Link className='h5 text-info' to="/student/register">Schools</Link></button>
+                <button className="btn btn-success" onClick={() => handleOrder(data.id)}><Link className='h5 text-info' to="/student/order">Schools</Link></button>
                 {/* <li><Link className='h5 text-info' to="/student/register" onClick={() => handleOrder(data.id)}>Schools</Link></li> */}
             </div>
         </div>
