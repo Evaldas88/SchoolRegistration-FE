@@ -5,13 +5,17 @@ import Header from '../../components/Header/Header'
 import Message from '../../components/message/Message'
 // import Footer from '../../components/footer/Footer'
 
-const Register = () => {
+const Register = ( ) => {
+    const id = localStorage.getItem('id')
     const [registerForm, setRegisterForm] = useState({
         name: '',
         surname: '',
         student_id: '',
         student_bd: '',
-        class: ''
+        class: '',
+        school_id: id
+
+
     })
     const [message, setMessage] = useState({
         text: '',
@@ -21,19 +25,12 @@ const Register = () => {
 
     const navigate = useNavigate()
     const token = localStorage.getItem('token')
-    
-
-
-    // useEffect(() => {
-    //     setLoading(false)
-    //     const token = localStorage.getItem('token')
-    //     if(token) {
-    //         navigate('/')
-    //     } 
-    // }, [navigate])
+   
 
     const handleFormChange = (e) => {
         setRegisterForm({...registerForm, [e.target.name]: e.target.value})
+        console.log(registerForm)
+
     }
 
     const handleFormSubmit = (e) => {
@@ -48,7 +45,7 @@ const Register = () => {
         .then(resp => {
             if (resp.status === 200) {
                 setLoading(false)
-                setMessage({text: 'Mokykla sėkmingai išssaugota', status: 'success'})
+                setMessage({text: 'Student saved', status: 'success'})
                 setTimeout(() => navigate('/'), 2000)
             }
         })
@@ -58,7 +55,7 @@ const Register = () => {
             if(err.response.data)
                 setMessage({text: err.response.data.message, status: 'danger'})
             else 
-                setMessage({text: 'Serveris miręs', status: 'danger'})
+                setMessage({text: 'Server is dead', status: 'danger'})
         })
     }
  
@@ -71,23 +68,23 @@ const Register = () => {
                     <Message value={message} />
                     <form onSubmit={handleFormSubmit}>
                         <div className="form-floating mb-3">
-                            <input type="text" className="form-control" name="name" onChange={handleFormChange} placeholder="Mokinio vardas" value={registerForm.name} />
+                            <input type="text" className="form-control" name="name" onChange={handleFormChange} placeholder="Student name" value={registerForm.name} />
                             <label >Name</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input type="text" className="form-control" name="surname" onChange={handleFormChange} placeholder="Mokinio pavardė" value={registerForm.surname} />
+                            <input type="text" className="form-control" name="surname" onChange={handleFormChange} placeholder="Student surname" value={registerForm.surname} />
                             <label >Surname</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input type="text" className="form-control" name="student_id" onChange={handleFormChange} placeholder="Asmens kodas" value={registerForm.email} />
+                            <input type="text" className="form-control" name="student_id" onChange={handleFormChange} placeholder="Personal code" value={registerForm.email} />
                             <label>Personal code</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input type="date" className="form-control" name="student_bd" onChange={handleFormChange} placeholder="Gimimo data" value={registerForm.password} />
+                            <input type="date" className="form-control" name="student_bd" onChange={handleFormChange} placeholder="Birthday" value={registerForm.student_bd} />
                             <label>Date of birth</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input type="number" className="form-control" name="student_bd" onChange={handleFormChange} placeholder="Klasė" value={registerForm.password} />
+                            <input type="number" className="form-control" name="class" onChange={handleFormChange} placeholder="Class" value={registerForm.class} />
                             <label>Which grade will the student be in?</label>
                         </div>
 

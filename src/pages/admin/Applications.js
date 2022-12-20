@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
-import Header from '../../components/Header/Header'
+ import Header from '../../components/Header/Header'
 import Message from '../../components/message/Message'
 import axios from 'axios'
 
@@ -12,8 +11,7 @@ const Appli = () => {
     })
     const [reload, setReload] = useState(false)
     const [loading, setLoading] = useState(true)
-    // const navigate = useNavigate();
-    const token = localStorage.getItem('token')
+     const token = localStorage.getItem('token')
 
     useEffect(() => {
         setLoading(true)

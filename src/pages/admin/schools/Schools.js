@@ -12,8 +12,7 @@ const Schools = () => {
     })
     const [loading, setLoading] = useState(true)
     const [reload, setReload] = useState(false)
-    const navigate = useNavigate();
-    const token = localStorage.getItem('token')
+     const token = localStorage.getItem('token')
 
     useEffect(() => {
         setLoading(true)
