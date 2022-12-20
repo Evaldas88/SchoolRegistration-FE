@@ -50,8 +50,7 @@ const Appli = () => {
                     setMessage({ text: err.response.data.message, status: 'danger' })
                 else
                     setMessage({ text: 'The server is dead', status: 'danger' })
-                //navigate('/login')
-            })
+             })
     }
 
     const handleStatus = (id) => {
