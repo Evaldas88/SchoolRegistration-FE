@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
- import Header from '../components/Header/Header'
+import Header from '../components/Header/Header'
 import Message from '../components/message/Message'
 import axios from 'axios'
 
@@ -9,10 +9,9 @@ const Applis = () => {
         text: '',
         status: ''
     })
+    const [reload, setReload] = useState(false)
     const [loading, setLoading] = useState(true)
-    const [reload, setReload] = useState(true)
-
-     const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token')
 
     useEffect(() => {
         setLoading(true)
@@ -23,60 +22,37 @@ const Applis = () => {
                 setLoading(false)
                 setReload(false)
                 setApplis(resp.data.message)
-                console.log(resp)
             })
             .catch(err => {
                 setLoading(false)
-                if(err.response.data)
-                    setMessage({text: err.response.data.message, status: 'danger'})
-                else 
-                    setMessage({text: 'Server is dead', status: 'danger'})
+                if (err.response.data)
+                    setMessage({ text: err.response.data.message, status: 'danger' })
+                else
+                    setMessage({ text: 'Server is dead', status: 'danger' })
             })
-        }, [reload])
+    }, [reload])
 
-  
 
-    // const handleDelete = (id) => {
-    //     setLoading(true)
-    //     axios.delete('http://127.0.0.1:8000/api/applicationS/' + id, {
-    //         headers: { Authorization: `Bearer ${token}` }
-    //     })
-    //         .then(resp => {
-    //             setLoading(false)
-    //             setReload(true)
-    //             setMessage({ text: resp.data.message, status: 'success' })
-    //             setTimeout(() => setMessage({text: '', status: ''}), 5000)
-
-    //         })
-    //         .catch(err => {
-    //             setLoading(false)
-    //             if (err.response.data)
-    //                 setMessage({ text: err.response.data.message, status: 'danger' })
-    //             else
-    //                 setMessage({ text: 'Server is dead', status: 'danger' })
-    //         })
-    // }
-    
     const handleDelete = (id) => {
         setLoading(true)
         axios.delete('http://127.0.0.1:8000/api/applicationS/' + id, {
             headers: { Authorization: `Bearer ${token}` }
         })
-        .then((resp) => {
-            setLoading(false)
-            setReload(true)
-            setMessage({text: resp.data.message, status: 'success'})
-            setTimeout(() => setMessage({text: '', status: ''}), 5000)
-        })
-        .catch(err => {
-            setLoading(false)
-            if(err.response.data)
-                setMessage({text: err.response.data.message, status: 'danger'})
-            else 
-                setMessage({text: 'Server is dead', status: 'danger'})
-        })
+            .then(resp => {
+                setLoading(false)
+                setReload(true)
+                setMessage({ text: resp.data.message, status: 'success' })
+                setTimeout(() => setMessage(''), 2000)
+                setApplis([])
+            })
+            .catch(err => {
+                setLoading(false)
+                if (err.response.data)
+                    setMessage({ text: err.response.data.message, status: 'danger' })
+                else
+                    setMessage({ text: 'The server is dead', status: 'danger' })
+            })
     }
-
 
 
     return (
