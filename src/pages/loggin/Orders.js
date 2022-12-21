@@ -29,21 +29,30 @@ const Register = () => {
 
     const handleFormChange = (e) => {
         setRegisterForm({ ...registerForm, [e.target.name]: e.target.value })
- 
-    }
+     }
 
     // birthday from personal code :
-    
+
     const date = registerForm.student_id
     console.log(date)
+
     let year = date.substring(1, 3)
     let month = date.substring(3, 5)
     let day = date.substring(5, 7)
-    const student_bd = '20' + year + '-' + month +'-' + day
-    console.log(student_bd)
+    if(date.substring(0, 1) == '3'){
+        registerForm.student_bd = '19' + year + '-' + month +'-' + day
+    }else if(date.substring(0, 1) == '4'){
+    registerForm.student_bd = '19' + year + '-' + month +'-' + day}
+    else if(date.substring(0, 1) == '5'){
+        registerForm.student_bd = '20' + year + '-' + month +'-' + day}
+        else if(date.substring(0, 1) == '6'){
+            registerForm.student_bd = '20' + year + '-' + month +'-' + day}
+            else{registerForm.student_bd = '0000'}
+    console.log(date.substring(0, 0))
 
  
-    
+
+
 
     // const test1 = (e)=>{
     //     handleBirth(e);
@@ -96,17 +105,15 @@ const Register = () => {
                             <input type="text" className="form-control" name="student_id" onChange={handleFormChange} placeholder="Personal code" value={registerForm.student_id} />
                             <label>Personal code</label>
                         </div>
-                        {/* <div className="form-floating mb-3">
-                            <input type="date" className="form-control" name="student_bd" onChange={handleFormChange} placeholder="Birthday" value={registerForm.student_bd} />
-                            <label>Date of birth</label>
-                        </div> */}
                         <div className="form-floating mb-3">
-                            <input type="number" className="form-control" name="class" onChange={handleFormChange} placeholder="Class" value={registerForm.class} />
+                            <input type="text" className="form-control" name="student_bd" onChange={handleFormChange} placeholder="Birthday" value={registerForm.student_bd} />
+                            <label>Date of birth</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input type="number" className="form-control" name="class" onChange={handleFormChange} placeholder="Class" value={registerForm.class}   min="1" max="12"/>
                             <label>Which grade will the student be in?</label>
                         </div>
-                        <div className="form-floating mb-3">
-                            <input disabled={true} className="form-control" name="student_bd" onChange={handleFormChange} placeholder="Class"  value={registerForm.student_bd}/><p>{student_bd}</p>
-                        </div>
+                    
                         <button className="w-100 btn btn-lg btn-primary" type="submit">Register</button>
                     </form>
                 </div>
