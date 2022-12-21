@@ -22,6 +22,7 @@ const Applis = () => {
                 setLoading(false)
                 setReload(false)
                 setApplis(resp.data.message)
+                console.log(resp.data.message)
             })
             .catch(err => {
                 setLoading(false)
@@ -74,6 +75,7 @@ const Applis = () => {
                                 <th>Surname</th>
                                 <th>School</th>
                                 <th>Class</th>
+                                <th>Birthday</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -85,6 +87,7 @@ const Applis = () => {
                                     <td>{appli.surname}</td>
                                     <td>{appli.school_name}</td>
                                     <td>{appli.class}</td>
+                                    <td>{appli.student_bd}</td> 
                                     <td>{appli.approved === 0 ? 'Not approved' : 'Approved'}</td>
                                     <td>
                                         <button className="btn btn-danger me-2" onClick={() => handleDelete(appli.id)}>Delete</button>

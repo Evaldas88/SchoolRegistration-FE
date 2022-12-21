@@ -81,32 +81,32 @@ const EditSchool = () => {
         <>
             <Header />
             {loading && (<div className="loading">Loading...</div>)}
-            <div className="pt-5 container">
+            <div className="pt-5 container w-25">
                 <div className="row">
                     <div className="col-md-12 d-flex">
                         <h2>Edit school</h2>
                     </div>
                 </div>
                 <Message value={message} />
-                <form className="editHotelForm" onSubmit={handleFormSubmit}>
-                    <div className="form-group">
+                <form className="mt-3" onSubmit={handleFormSubmit}>
+                    <div className="form-group mt-2">
                         <label>School name:</label>
-                        <input type="text" name="name" className="form-control" onChange={handleFormChange} value={form.name} />
+                        <input type="text" name="name" className="form-control  mt-1" onChange={handleFormChange} value={form.name} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mt-2">
                         <label>Code:</label>
-                        <input type="number" name="code" className="form-control" onChange={handleFormChange} value={form.code} />
+                        <input type="number" name="code" className="form-control  mt-1" onChange={handleFormChange} value={form.code} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mt-2">
                         <label>Town:</label>
-                        <input type="text" name="city" className="form-control" onChange={handleFormChange} value={form.city} />
+                        <input type="text" name="city" className="form-control  mt-1" onChange={handleFormChange} value={form.city} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mt-2">
                         <label>Address:</label>
-                        <input type="text" name="address" className="form-control" onChange={handleFormChange} value={form.address} />
+                        <input type="text" name="address" className="form-control mt-1" onChange={handleFormChange} value={form.address} />
                     </div>
-                    <div className="form-group">
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                    <div className="form-group  mt-2">
+                        <button type="submit" className="btn btn-primary  mt-3">Submit</button>
                     </div>
                 </form>
             </div>

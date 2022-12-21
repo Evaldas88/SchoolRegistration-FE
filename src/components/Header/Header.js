@@ -42,9 +42,9 @@ const Header = () => {
                             <>
                                 <li>
                                     <Link className='text-white h4' to="/admin/applications">Admin</Link>
-                                    <ul class="dropdown-menu">
-                                        <li><Link className='' to="/admin/applications">Applications</Link></li>
-                                        <li><Link className='' to="/admin/schools">Schools</Link></li>
+                                    <ul class="dropdown-menu text-center">
+                                        <li><Link className='h5' to="/admin/applications">Applications</Link></li>
+                                        <li><Link className='h5' to="/admin/schools">Schools</Link></li>
                                     </ul>
                                 </li>
                             </>

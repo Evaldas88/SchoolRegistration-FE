@@ -69,7 +69,7 @@ const Schools = () => {
                 </div>  
                 <Message value={message} />
                 {schools.length > 0 ? (
-                    <table className="table bg-light table-bordered">
+                    <table className="table bg-light table-bordered align-middle text-center">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -77,7 +77,7 @@ const Schools = () => {
                                 <th>Code</th>
                                 <th>Town</th>
                                 <th>Address</th>
-                                <th></th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,10 +89,10 @@ const Schools = () => {
                                 <td>{school.city}</td>
                                 <td>{school.address}</td>
                                 <td>    
-                                    <p className="text-end">
+                                   
                                         <button className="btn btn-danger me-2" onClick={() => handleDelete(school.id)}>Delete</button>
                                         <Link to={'/admin/schools/edit/' + school.id} className="btn btn-primary">Edit</Link>
-                                    </p>
+                                    
                                 </td>
                             </tr>
                         ))}
