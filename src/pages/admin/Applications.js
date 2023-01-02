@@ -23,6 +23,7 @@ const Appli = () => {
                 setLoading(false)
                 setReload(false)
                 setApplis(resp.data.message)
+                console.log(resp.data.message)
             })
             .catch(err => {
                 setLoading(false)
@@ -86,13 +87,17 @@ const Appli = () => {
                 </div>
                 <Message value={message} />
                 {applis.length > 0 ? (
-                    <table className="table bg-light table-bordered">
+                    <table className="table bg-light table-bordered text-center">
                         <thead>
                             <tr>
-                                <th>Educational institution</th>
+                                <th>Educational institution name</th>
                                 <th>Code</th>
                                 <th>Address</th>
                                 <th>City</th>
+                                <th>Student Name</th>
+                                <th>Student Surname</th>
+                                <th>Student ID</th>
+                                <th>Student Birthday</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -104,6 +109,10 @@ const Appli = () => {
                                     <td>{appli.code}</td>
                                     <td>{appli.address}</td>
                                     <td>{appli.city}</td>
+                                    <td>{appli.name}</td>
+                                    <td>{appli.surname}</td>
+                                    <td>{appli.student_id}</td>
+                                    <td>{appli.student_bd}</td>
                                     <td>{appli.approved === 0 ? 'Unverified' : 'Verified'}</td>
                                     <td>
                                         <button className="btn btn-danger me-2" onClick={() => handleDelete(appli.id)}>Delete</button>

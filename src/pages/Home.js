@@ -46,7 +46,7 @@ const Home = () => {
             .then((res) => res.json())
             .then(
                 (res) => {
-                    setItems( res);
+                    setItems(res);
                     setLoading(false);
                     console.log(res)
 
@@ -74,22 +74,22 @@ const Home = () => {
                 </div>
                 <Message value={message} />
                 {!showSearchResults ?
-                <div>
-                {schools ? <SchoolList schools={schools} />
-                    : (
-                        <h2>No schools list</h2>
-                    )} 
-                     </div>
+                    <div>
+                        {schools ? <SchoolList schools={schools} />
+                            : (
+                                <h2>No schools list</h2>
+                            )}
+                    </div>
                     :
                     <div>
-                    {items ? <SchoolList schools={items} />
-                        : (
-                            <h2>No schools list</h2>
-                        )}
+                        {items ? <SchoolList schools={items} />
+                            : (
+                                <h2>No schools list</h2>
+                            )}
                     </div>
-}
+                   }
             </div>
-            
+
             {/* <Footer/> */}
         </>
     )

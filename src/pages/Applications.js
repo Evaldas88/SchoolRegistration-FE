@@ -88,7 +88,7 @@ const Applis = () => {
                                     <td>{appli.school_name}</td>
                                     <td>{appli.class}</td>
                                     <td>{appli.student_bd}</td> 
-                                    <td>{appli.approved === 0 ? 'Not approved' : 'Approved'}</td>
+                                    <td>{appli.approved === 0 ? 'Not approved' : <strong>Approved</strong>}</td>
                                     <td>
                                         <button className="btn btn-danger me-2" onClick={() => handleDelete(appli.id)}>Delete</button>
                                     </td>
