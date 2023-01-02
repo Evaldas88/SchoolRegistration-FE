@@ -50,15 +50,7 @@ const Register = () => {
             else{registerForm.student_bd = '0000'}
     console.log(date.substring(0, 0))
 
- 
-
-
-
-    // const test1 = (e)=>{
-    //     handleBirth(e);
-    //     handleFormChange(e);
-    // }
-
+  
     const handleFormSubmit = (e) => {
         e.preventDefault()
         setLoading(true)
