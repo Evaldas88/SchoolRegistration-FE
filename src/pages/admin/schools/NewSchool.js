@@ -16,15 +16,18 @@ const NewHotel = () => {
         text: '',
         status: ''
     })
-    const [shools, setSchools] = useState([])
+    const [schools, setSchools] = useState([])
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate();
     const token = localStorage.getItem('token')
 
     const handleFormChange = (e) => {
-        
+        if(e.target.name === 'image')
+            setForm({ ...form, [e.target.name]: e.target.value  })
+        else
             setForm({ ...form, [e.target.name]: e.target.value })
     }
+
 
     useEffect(() => {
         setLoading(true)
@@ -94,6 +97,10 @@ const NewHotel = () => {
                     <div className="form-group mt-2">
                         <label>Code:</label>
                         <input type="number" name="code" className="form-control  mt-1" onChange={handleFormChange} value={form.price} />
+                    </div>
+                    <div className="form-group">
+                        <label className="mt-2">Photo:</label>
+                        <input type="text" name="image" className="form-control  mt-1" onChange={handleFormChange} />
                     </div>
                     <div className="form-group mt-2">
                         <label>Town:</label>

@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import SchoolCard from '../SchoolCard/SchoolCard.js'
 import Message from '../message/Message'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+ import { useNavigate } from 'react-router-dom'
 
 
 const SchoolList = (props) => {
     const schools = props.schools
     const navigate = useNavigate()
-    const token = localStorage.getItem('token')
+    // const token = localStorage.getItem('token')
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState({
         text: '',
@@ -27,6 +26,7 @@ const SchoolList = (props) => {
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 {schools.map(school => <SchoolCard key={school.id} data={school} handleOrder={handleOrder} />)}
             </div>
+            
         </>
     )
 }

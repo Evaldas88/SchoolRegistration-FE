@@ -10,7 +10,8 @@ const EditSchool = () => {
         name: '',
         code: '',
         city: '',
-        address: ''
+        address: '',
+        image: '',
     })
     const [message, setMessage] = useState({
         text: '',
@@ -34,6 +35,7 @@ const EditSchool = () => {
                 code: resp.data.message[0].code,
                 city: resp.data.message[0].city,
                 address: resp.data.message[0].address,
+                image: resp.data.message[0].image,
             })
         })
         .catch(err => {
@@ -92,6 +94,10 @@ const EditSchool = () => {
                     <div className="form-group mt-2">
                         <label>School name:</label>
                         <input type="text" name="name" className="form-control  mt-1" onChange={handleFormChange} value={form.name} />
+                    </div>
+                    <div className="form-group">
+                        <label className="mt-2">Photo:</label>
+                        <input type="text" name="image" className="form-control  mt-1" onChange={handleFormChange} />
                     </div>
                     <div className="form-group mt-2">
                         <label>Code:</label>

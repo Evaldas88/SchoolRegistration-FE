@@ -33,10 +33,11 @@ const Home = () => {
             })
     }, [])
 
-
+    let [showSearchResults, setShowSearchResults] = useState(false)
 
     const searchSchool = (event) => {
         event.preventDefault();
+        setShowSearchResults(!showSearchResults)
         let item = event.target.name.value;
         console.log(item)
         let searchUrl = url + item;
@@ -46,7 +47,7 @@ const Home = () => {
             .then(
                 (res) => {
                     setItems( res);
-                    setLoading(true);
+                    setLoading(false);
                     console.log(res)
 
                 },
@@ -71,26 +72,24 @@ const Home = () => {
                         </div>
                     </form>
                 </div>
-                <div className="col-sm d-flex align-items-center justify-content-center flex-wrap p-3 ">
-                    {items.map((school, index) => (
-                        <div className="card-body flex-fill mb-5 mx-4 mt-3 bg-light p-4 rounded"
-                            key={school.id}>
-                            <div className="d-flex j ustify-content-between mt-3 text-align">
-                                <h4 className="card-title mx-3">{school.name}</h4>
-                                <p className="card-title mx-3 fst-italic">{school.city}</p>
-                                <p className="card-title mx-3 fst-italic">{school.address}</p>
-                                <p className="card-title mx-3 fst-italic">{school.code}</p>
-                            </div>
-                            <div className="d-flex justify-content-between"></div>
-                        </div>
-                    ))}
-                </div>
                 <Message value={message} />
+                {!showSearchResults ?
+                <div>
                 {schools ? <SchoolList schools={schools} />
                     : (
                         <h2>No schools list</h2>
-                    )}
+                    )} 
+                     </div>
+                    :
+                    <div>
+                    {items ? <SchoolList schools={items} />
+                        : (
+                            <h2>No schools list</h2>
+                        )}
+                    </div>
+}
             </div>
+            
             {/* <Footer/> */}
         </>
     )
