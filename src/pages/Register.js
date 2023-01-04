@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Header from '../components/Header/Header'
 import Message from '../components/message/Message'
-// import Footer from '../components/footer/Footer'
-
+ 
 const Register = () => {
     const [registerForm, setRegisterForm] = useState({
         name: '',
@@ -81,8 +80,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-            {/* <Footer/> */}
-        </>
+         </>
     )
 }
 

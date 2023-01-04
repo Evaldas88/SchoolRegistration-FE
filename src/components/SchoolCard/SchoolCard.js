@@ -32,8 +32,8 @@ const SchoolCard = (props) => {
                                     <img src={data.image} alt={data.name} className="img-thumbnail" style={{ height: "8rem" }} />
                                 </div>
                             )}
-                            <h4 className="card-title mt-2">City <h5>{data.city}</h5> </h4>
-                            <h4 className="card-title mt-2">Address <h5>{data.address}</h5></h4>
+                            <h4 className="card-title mt-2">City  {data.city}  </h4>
+                            <h4 className="card-title mt-2">Address  {data.address} </h4>
                             <p className="card-text mt-2">ID {data.id}</p>
                             {user.loggedIn && user.role === '1' && (
                                 <>

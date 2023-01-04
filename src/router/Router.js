@@ -1,4 +1,3 @@
-import '../App.css';
 import { useEffect, useState } from 'react'
 import {
     BrowserRouter,
@@ -61,9 +60,8 @@ const App = () => {
                     </>
                 )}
               <Route path="/logout" element={<Logout logoutUser={logoutUser} />} /> 
-
           </Routes>
-      </BrowserRouter>
+                </BrowserRouter>
   )
 }
 

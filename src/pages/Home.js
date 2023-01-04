@@ -3,8 +3,7 @@ import SchoolList from '../components/SchoolList/SchoolList'
 import Message from '../components/message/Message'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-// import Footer from '../components/footer/Footer'
-
+ 
 const Home = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -89,9 +88,7 @@ const Home = () => {
                     </div>
                    }
             </div>
-
-            {/* <Footer/> */}
-        </>
+         </>
     )
 }
 

@@ -3,7 +3,6 @@ import axios from 'axios'
 import Header from '../components/Header/Header'
 import Message from '../components/message/Message'
 import { useNavigate } from 'react-router-dom'
-// import Footer from '../components/footer/Footer'
 
 const Login = ({ setUser }) => {
     const [loginForm, setLoginForm] = useState({
@@ -79,8 +78,6 @@ const Login = ({ setUser }) => {
                         </div>
                     </div>
                 </div>
-                {/* <Footer/> */}
-
             </div>
 
         </>
