@@ -9,13 +9,15 @@ const Header = () => {
     useEffect(() => {
         const token = localStorage.getItem('token')
         const role = localStorage.getItem('user_role')
+        
+
 
         if (token && role) {
             setUser({
                 loggedIn: true,
                 token,
-                role
-            })
+                role 
+                            })
         }
     }, [])
 
@@ -32,10 +34,9 @@ const Header = () => {
                                 <li><Link className='text-white h4' to="/register">Registration</Link></li>
                             </>
                         )}
-                        {user.loggedIn && (
+                        {user.loggedIn && user.role === '1' && (
                             <>
                                 <li><Link className='text-white h4' to="/applications">Applications</Link></li>
-                                <li><Link className='text-white h4' to="/logout">Logout</Link></li>
                             </>
                         )}
                         {user.loggedIn && user.role === '0' && (
@@ -48,6 +49,9 @@ const Header = () => {
                                     </ul>
                                 </li>
                             </>
+                        )}
+                        {user.loggedIn && (
+                                <li><Link className='text-white h4' to="/logout">Logout</Link></li>
                         )}
                     </ul>
                 </nav>

@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
- import Header from '../../components/Header/Header'
+import { useNavigate } from 'react-router-dom'
+import Header from '../../components/Header/Header'
 import Message from '../../components/message/Message'
 import axios from 'axios'
 
 const Appli = () => {
+    const navigate = useNavigate();
+
     const [applis, setApplis] = useState([])
     const [message, setMessage] = useState({
         text: '',
@@ -11,7 +14,7 @@ const Appli = () => {
     })
     const [reload, setReload] = useState(false)
     const [loading, setLoading] = useState(true)
-     const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token')
 
     useEffect(() => {
         setLoading(true)
@@ -31,8 +34,7 @@ const Appli = () => {
                     setMessage({ text: err.response.data.message, status: 'danger' })
                 else
                     setMessage({ text: 'The server is dead', status: 'danger' })
-                //navigate('/login')
-            })
+             })
     }, [reload])
 
     const handleDelete = (id) => {
@@ -51,7 +53,7 @@ const Appli = () => {
                     setMessage({ text: err.response.data.message, status: 'danger' })
                 else
                     setMessage({ text: 'The server is dead', status: 'danger' })
-             })
+            })
     }
 
     const handleStatus = (id) => {
@@ -70,9 +72,13 @@ const Appli = () => {
                     setMessage({ text: err.response.data.message, status: 'danger' })
                 else
                     setMessage({ text: 'The server is dead', status: 'danger' })
-                //navigate('/login')
-            })
+             })
     }
+    const handleDetails = (id) => {
+        setLoading(true)
+        navigate('/admin/applicationsInfo/register/' + id )
+}
+
 
 
     return (
@@ -91,13 +97,10 @@ const Appli = () => {
                         <thead>
                             <tr>
                                 <th>Educational institution name</th>
-                                <th>Code</th>
-                                <th>Address</th>
+                                 <th>Address</th>
                                 <th>City</th>
-                                <th>Student Name</th>
-                                <th>Student Surname</th>
-                                <th>Student ID</th>
-                                <th>Student Birthday</th>
+                                 <th>Student Surname</th>
+                                 <th>Student Birthday</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -106,19 +109,17 @@ const Appli = () => {
                             {applis.map(appli => (
                                 <tr key={appli.id}>
                                     <td>{appli.school_name}</td>
-                                    <td>{appli.code}</td>
-                                    <td>{appli.address}</td>
+                                     <td>{appli.address}</td>
                                     <td>{appli.city}</td>
-                                    <td>{appli.name}</td>
-                                    <td>{appli.surname}</td>
-                                    <td>{appli.student_id}</td>
-                                    <td>{appli.student_bd}</td>
+                                     <td>{appli.surname}</td>
+                                     <td>{appli.student_bd}</td>
                                     <td>{appli.approved === 0 ? 'Unverified' : 'Verified'}</td>
                                     <td>
                                         <button className="btn btn-danger me-2" onClick={() => handleDelete(appli.id)}>Delete</button>
-                                        <button className="btn btn-success" onClick={() => handleStatus(appli.id)}>
+                                        <button className="btn btn-success  me-2" onClick={() => handleStatus(appli.id)}>
                                             {appli.approved === 0 ? 'Confirm' : 'Reject'}
                                         </button>
+                                        <button className="btn btn-warning" onClick={() => handleDetails(appli.id)}>Detaliau</button>
                                     </td>
                                 </tr>
                             ))}

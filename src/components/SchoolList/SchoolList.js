@@ -24,7 +24,8 @@ const SchoolList = (props) => {
         <>
             <Message value={message} />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                {schools.map(school => <SchoolCard key={school.id} data={school} handleOrder={handleOrder} />)}
+            {Array.isArray(schools) ? schools.map(school => <SchoolCard key={school.id} data={school} handleOrder={handleOrder} />) : null}
+
             </div>
             
         </>

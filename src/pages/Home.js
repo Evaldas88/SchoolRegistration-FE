@@ -8,11 +8,11 @@ const Home = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true)
     const [schools, setSchools] = useState([])
-    const [message, setMessage] = useState({
-        text: '',
-        status: ''
-    })
-    const url = 'http://127.0.0.1:8000/api/search/'
+    const [message, setMessage] = useState([{
+        text: [],
+        status: []
+    }])
+    
     const [error, setError] = useState(null);
     useEffect(() => {
         setLoading(true)
@@ -33,6 +33,8 @@ const Home = () => {
     }, [])
 
     let [showSearchResults, setShowSearchResults] = useState(false)
+    const url = 'http://127.0.0.1:8000/api/schools/search/'
+
 
     const searchSchool = (event) => {
         event.preventDefault();
@@ -41,19 +43,17 @@ const Home = () => {
         console.log(item)
         let searchUrl = url + item;
 
-        fetch(searchUrl)
-            .then((res) => res.json())
-            .then(
-                (res) => {
-                    setItems(res);
+        axios.get(searchUrl)
+             .then(resp => {
+                    setItems(resp.data);
                     setLoading(false);
-                    console.log(res)
+                    console.log(resp)
 
-                },
-                (err) => {
-                    setError(err);
-                    console.log(err)
-                    setLoading(true);
+                })
+                .catch(error => {
+                    setError(error);
+                    console.log(error)
+                    setLoading(false);
                 }
             );
     }
