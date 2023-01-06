@@ -14,7 +14,7 @@ import EditShool from '../pages/admin/schools/EditSchool';
 import NewSchool from '../pages/admin/schools/NewSchool';
 import Applications from '../pages/Applications';
 import StudentApplication from '../pages/loggin/Orders';
-import ApplicationsInfo from '../pages/Applications';
+import ApplicationsInfo from '../pages/admin/ApplicationsInfo';
 
 
 
@@ -51,7 +51,7 @@ const App = () => {
                         <Route path="/admin/applications" element={<AdminApplications />} />
                         <Route path="/admin/schools" element={<Schools />} />
                         <Route path="/admin/schools/new" element={<NewSchool />} />
-                        <Route path="/admin/applications/register/:id" element={<ApplicationsInfo />} />
+                        <Route path="/admin/ApplicationsInfo/register/:id" element={<ApplicationsInfo />} />
                         <Route path="/admin/schools/edit/:id" element={<EditShool />} />
                     </>
                 )}

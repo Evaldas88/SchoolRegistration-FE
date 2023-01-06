@@ -26,7 +26,6 @@ const Appli = () => {
                 setLoading(false)
                 setReload(false)
                 setApplis(resp.data.message)
-                console.log(resp.data.message)
             })
             .catch(err => {
                 setLoading(false)
@@ -76,7 +75,7 @@ const Appli = () => {
     }
     const handleDetails = (id) => {
         setLoading(true)
-        navigate('/admin/applicationsInfo/register/' + id )
+        navigate('/admin/ApplicationsInfo/register/' + id )
 }
 
 
@@ -119,7 +118,7 @@ const Appli = () => {
                                         <button className="btn btn-success  me-2" onClick={() => handleStatus(appli.id)}>
                                             {appli.approved === 0 ? 'Confirm' : 'Reject'}
                                         </button>
-                                        <button className="btn btn-warning" onClick={() => handleDetails(appli.id)}>Detaliau</button>
+                                        <button className="btn btn-warning" onClick={() => handleDetails(appli.id)}>Student detail</button>
                                     </td>
                                 </tr>
                             ))}
