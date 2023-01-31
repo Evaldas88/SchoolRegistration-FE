@@ -29,7 +29,7 @@ const Appli = () => {
                 setLoading(false)
                 setReload(false)
                 setApplis(resp.data.message)
-                console.log(resp.data)
+                // console.log(resp.data)
 
             })
             .catch(err => {

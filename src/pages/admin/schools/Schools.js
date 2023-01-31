@@ -35,7 +35,7 @@ const Schools = () => {
     }, [reload])
 
     const handleDelete = (id) => {
-        console.log(id)
+        // console.log(id)
         setLoading(true)
         axios.delete('http://127.0.0.1:8000/api/schools/' + id, {
             headers: { Authorization: `Bearer ${token}` }

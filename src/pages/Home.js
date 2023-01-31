@@ -40,14 +40,14 @@ const Home = () => {
         event.preventDefault();
         setShowSearchResults(!showSearchResults)
         let item = event.target.name.value;
-        console.log(item)
+        // console.log(item)
         let searchUrl = url + item;
 
         axios.get(searchUrl)
              .then(resp => {
                     setItems(resp.data);
                     setLoading(false);
-                    console.log(resp)
+                    // console.log(resp)
 
                 })
                 .catch(error => {
@@ -67,7 +67,7 @@ const Home = () => {
                         <label>Search school:</label>
                         <div className="d-flex">
                             <input className="form-control" name="name"></input>
-                            <button className="btn border">Search</button>
+                            <button className="btn btn-dark">Search</button>
                         </div>
                     </form>
                 </div>

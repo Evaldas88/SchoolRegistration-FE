@@ -26,15 +26,14 @@ const SchoolCard = (props) => {
                 <div className="  d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <div className=" d-flex flex-wrap gap-4 " >
                         <div className="card-body ">
-                            <h4 className="card-title text-center ">  {data.name} </h4>
+                            <h4 className="card-title text-center">  {data.name} </h4>
                             {data.image && (
                                 <div className="">
                                     <img src={data.image} alt={data.name} className="img-thumbnail" style={{ height: "8rem" }} />
                                 </div>
                             )}
-                            <h4 className="card-title mt-2">City  {data.city}  </h4>
-                            <h4 className="card-title mt-2">Address  {data.address} </h4>
-                            <p className="card-text mt-2">ID {data.id}</p>
+                            <h5 className="card-title mt-3">City<p> {data.city} </p></h5>
+                            <h5 className="card-title mt-2">Address<p>{data.address}</p></h5>
                             {user.loggedIn && user.role === '1' && (
                                 <>
                                     <div className="mt-2">

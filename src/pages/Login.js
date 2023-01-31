@@ -73,7 +73,7 @@ const Login = ({ setUser }) => {
                                     <label>Password</label>
                                     <input type="password" className="form-control mt-1" name="password" onChange={handleFormChange} placeholder="password" />
                                 </div>
-                                <button className="w-100 btn btn-lg btn-primary mt-3" type="submit">Prisijungti</button>
+                                <button className="w-100  btn-lg btn btn-dark mt-3" type="submit">Login</button>
                             </form>
                         </div>
                     </div>

@@ -33,7 +33,7 @@ const Appli = () => {
                     setMessage({ text: err.response.data.message, status: 'danger' })
                 else
                     setMessage({ text: 'The server is dead', status: 'danger' })
-             })
+            })
     }, [reload])
 
     const handleDelete = (id) => {
@@ -71,12 +71,12 @@ const Appli = () => {
                     setMessage({ text: err.response.data.message, status: 'danger' })
                 else
                     setMessage({ text: 'The server is dead', status: 'danger' })
-             })
+            })
     }
     const handleDetails = (id) => {
         setLoading(true)
-        navigate('/admin/ApplicationsInfo/register/' + id )
-}
+        navigate('/admin/ApplicationsInfo/register/' + id)
+    }
 
 
 
@@ -96,10 +96,10 @@ const Appli = () => {
                         <thead>
                             <tr>
                                 <th>Educational institution name</th>
-                                 <th>Address</th>
+                                <th>Address</th>
                                 <th>City</th>
-                                 <th>Student Surname</th>
-                                 <th>Student Birthday</th>
+                                <th>Student Surname</th>
+                                <th>Student Birthday</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -108,10 +108,10 @@ const Appli = () => {
                             {applis.map(appli => (
                                 <tr key={appli.id}>
                                     <td>{appli.school_name}</td>
-                                     <td>{appli.address}</td>
+                                    <td>{appli.address}</td>
                                     <td>{appli.city}</td>
-                                     <td>{appli.surname}</td>
-                                     <td>{appli.student_bd}</td>
+                                    <td>{appli.surname}</td>
+                                    <td>{appli.student_bd}</td>
                                     <td>{appli.approved === 0 ? 'Unverified' : 'Verified'}</td>
                                     <td>
                                         <button className="btn btn-danger me-2" onClick={() => handleDelete(appli.id)}>Delete</button>

@@ -22,7 +22,7 @@ const Applis = () => {
                 setLoading(false)
                 setReload(false)
                 setApplis(resp.data.message)
-                console.log(resp.data.message)
+                // console.log(resp.data.message)
             })
             .catch(err => {
                 setLoading(false)

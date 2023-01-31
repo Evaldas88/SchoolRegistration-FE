@@ -34,7 +34,7 @@ const Register = () => {
     // birthday from personal code :
 
     const date = registerForm.student_id
-    console.log(date)
+    // console.log(date)
 
     let year = date.substring(1, 3)
     let month = date.substring(3, 5)
@@ -48,7 +48,7 @@ const Register = () => {
         else if(date.substring(0, 1) == '6'){
             registerForm.student_bd = '20' + year + '-' + month +'-' + day}
             else{registerForm.student_bd = '0000'}
-    console.log(date.substring(0, 0))
+    // console.log(date.substring(0, 0))
 
   
     const handleFormSubmit = (e) => {
