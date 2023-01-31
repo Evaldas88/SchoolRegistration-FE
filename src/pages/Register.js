@@ -56,7 +56,7 @@ const Register = () => {
             {loading && (<div className="loading">Loading...</div>)}
             <Header />
             <div className="d-flex aligns-items-center justify-content-center">
-                <div className="card w-25">
+                <div className="card">
                     <div className="card-header ">Registration
 
                         <div className="card-body">
