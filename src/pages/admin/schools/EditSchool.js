@@ -97,7 +97,7 @@ const EditSchool = () => {
                     </div>
                     <div className="form-group">
                         <label className="mt-2">Photo:</label>
-                        <input type="text" name="image" className="form-control  mt-1" onChange={handleFormChange} />
+                        <input type="text" name="image" className="form-control  mt-1" onChange={handleFormChange} value={form.image} />
                     </div>
                     <div className="form-group mt-2">
                         <label>Code:</label>
