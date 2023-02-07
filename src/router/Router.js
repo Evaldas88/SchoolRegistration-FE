@@ -15,7 +15,7 @@ import NewSchool from '../pages/admin/schools/NewSchool';
 import Applications from '../pages/Applications';
 import StudentApplication from '../pages/loggin/Orders';
 import ApplicationsInfo from '../pages/admin/ApplicationsInfo';
-
+import NotFound from "../components/NotFound/NotFound";
 
 
 const App = () => {
@@ -44,6 +44,7 @@ const App = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="*" element={<NotFound />} />
                 {!user.loggedIn && <Route path="/login" element={<Login setUser={setUser} />} />}
                 {!user.loggedIn && <Route path="/register" element={<Register />} />}
                 {user.loggedIn && user.role == '0' && (
